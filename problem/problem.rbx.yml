@@ -44,4 +44,4 @@ stresses:
     finder: 'sols/wa.cpp ~ INCORRECT'
 vars:
   "MAX_N": 1000000000  # Can be used in the validator, in stress tests and in the statement.
-
+  "MOD": py`10**9 + 7` # Can also be a Python3 expression
