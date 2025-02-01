@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{maratona}
+\usepackage{multirow}
+
+\usepackage[utf8]{inputenc}
+
+\title{Informações importantes}
+
+\pagestyle{myheadings}
+\markright{\VAR{contest.title}}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+
+\vspace{1cm}
+\includegraphics[scale=0.2]{logo.png}
+
+\vspace{1cm}
+{\Large \bf \VAR{contest.title}}\\ {Folha de Informações}\\[12pt]
+{\small  \em 08 de Junho de 2024}
+\end{center}
+
+\vspace{0.5cm}
+\subsubsection*{Limites}
+
+\begin{center}
+\begin{tabular}{c|ccc|c}
+& \multicolumn{3}{c|}{Tempo} & \multirow{2}{*}{Memória} \\
+%\cline{2-4}
+{\sf Problema} & {\sf C/C++} &{\sf Java} & {\sf Python3} & \\
+\hline
+%- for problem in problems:
+\VAR{problem.short_name}
+& \VAR{problem.package.timelimit_for_language('cpp') / 1000 | round(1, 'floor')}s
+& \VAR{problem.package.timelimit_for_language('java') / 1000 | round(1, 'floor')}s
+& \VAR{problem.package.timelimit_for_language('py') / 1000 | round(1, 'floor')}s
+& \VAR{problem.package.memoryLimit} MiB
+\\ \hline
+%- endfor
+\end{tabular}
+\end{center}
+
+\subsubsection*{Outros limites}
+\begin{verbatim}
+Tamanho do arquivo fonte: 100KB
+\end{verbatim}
+
+\subsubsection*{Comandos de compilação}
+\begin{verbatim}
+%- if keyed_languages.c is defined:
+\VAR{keyed_languages.c.name}: \VAR{keyed_languages.c.command}
+%- endif
+
+%- if keyed_languages.cpp is defined:
+\VAR{keyed_languages.cpp.name}: \VAR{keyed_languages.cpp.command}
+%- endif
+
+%- if keyed_languages.java is defined:
+\VAR{keyed_languages.java.name}: javac
+%- endif
+\end{verbatim}
+
+
+\vfill
+\begin{center}
+{\tiny v1.0}
+\end{center}
+\end{titlepage}
+\end{document}

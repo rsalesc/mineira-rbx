@@ -1,0 +1,212 @@
+% Style for ICPC ACM 2015
+% South America - Brazil Regional
+% R. Anido
+%
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{epsfig}
+\usepackage{moreverb}
+\usepackage{float}
+\usepackage{fancyvrb}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{titlesec}
+\usepackage{pmboxdraw}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,fit,scopes,chains}
+\let\mytitleformat\titleformat
+\let\titleformat\relax
+\usepackage{logicpuzzle}
+
+\oddsidemargin  0.0in
+\evensidemargin 0.0in
+\textwidth      6.7in
+\headsep        0.5in
+\textheight     9.5in
+\topmargin     -0.5in
+
+\usepackage{enumitem}
+%\setlist{itemsep=0pt}
+%\setlist{topsep=0pt}
+%\setlist{parsep=0pt}
+%\setlist{itemsep=0pt}
+%\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
+%\setlist{noitemsep} % or \setlist{noitemsep} to leave space around whole list
+
+
+\pagestyle{myheadings}
+\markright{Maratona SBC -- 2015}
+
+\newcounter{pcounter}\setcounter{pcounter}{0}
+\newcounter{INPUT}
+
+%\titlespacing\section{0pt}{0pt plus 0pt minus 4pt}{0pt plus 0pt minus 4pt}
+%\titlespacing\subsection{0pt}{0pt plus 0pt minus 4pt}{0pt plus 0pt minus 4pt}
+%\titlespacing\subsubsection{0pt}{0t plus 0pt minus 4pt}{0pt plus 0pt minus 4pt}
+%\titlespacing\section{0pt}{0pt}{0pt}
+\titlespacing\subsection{0pt}{8pt}{4pt}
+\titlespacing\subsubsection{0pt}{4pt}{4pt}
+
+
+\def\section{\@startsection{section}{1}{\z@}
+  {-3.5ex plus -1ex minus -.2ex}{2.3ex plus .2ex}
+  { \addtocounter{pcounter}{1}
+    \centering\Large\sf Problema \Alph{pcounter} \\ \huge }}
+
+%\def\subsection{\@startsection{subsection}{2}{\z@}
+%  {-1.6ex plus -1ex minus -.2ex}{2.0ex plus .2ex}{\large\bf}}
+
+
+\newcommand{\insereArquivo}[1]{
+\vspace{-4pt}
+\ifnum0\pdffilesize{\CWD/#1}>0
+	\VerbatimInput[xleftmargin=0mm,numbers=none,obeytabs=true]{\CWD/#1}\vspace{.1em}
+\fi
+}
+
+\newcommand{\incluiProblema}[3]
+  {
+    \section*{#1}
+    \renewcommand{\CWD}{../problems/#2/documents/}
+    \input{../problems/#2/documents/#3}
+
+  }
+
+\newcommand{\incluiProblemaExtra}[3]
+  {
+    \section*{#1}
+    \renewcommand{\CWD}{../extraproblems/#2/documents/}
+    \input{../extraproblems/#2/documents/#3}
+
+  }
+
+\newcommand{\incluiProblemaAquecimento}[3]
+  {
+    \section*{#1}
+    \renewcommand{\CWD}{../warmup_problems/#2/documents/}
+    \input{../warmup_problems/#2/documents/#3}
+
+  }
+
+\newcommand{\inputdesc}[1]{
+     \subsection*{Entrada}
+     {#1}}
+
+\newcommand{\inputdescline}[1]{\inputdesc{A entrada consiste de uma única linha que contém {#1}}}
+
+\newcommand{\outputdesc}[1]{
+     \subsection*{Saída}
+     {#1}}
+
+\newcommand{\outputdescline}[2]{\outputdesc{Seu programa deve produzir uma única linha com {#1} representando {#2}}}
+\newcommand{\outputfloatnotice}[1]{O resultado deve ser escrito como um número racional com exatamente {#1} dígitos após o
+ponto decimal, arredondado se necessário.}
+
+\newcommand{\literaltext}[1]{\mbox{``\texttt{#1}''}}
+\newcommand{\literalchar}[1]{\literaltext{#1}}
+
+\newcommand{\Ldots}[3]{{#1}, {#2}, \ldots, {#3}}
+\newcommand{\iteration}[4]{${#1}=\Ldots{#2}{#3}{#4}$}
+
+\newcommand{\incat}[1]{sample-#1.in}
+\newcommand{\solcat}[1]{sample-#1.sol}
+\newcommand{\explaincat}[1]{explain-#1.tex}
+\newcounter{count}
+\setcounter{count}{0}
+
+\newcommand{\CWD}{./}
+
+
+\newcommand{\sampleiofull}{
+\vspace{12pt}
+\setcounter{count}{0}
+\whiledo{\value{count}<10}{
+  \addtocounter{count}{1}
+  \IfFileExists{\CWD/\incat{\thecount}} {
+  \vspace{8pt}
+  \noindent
+  \begin{minipage}[c]{1\textwidth}
+  \begin{center}
+  \begin{tabular}{|l|} \hline
+  \begin{minipage}[t]{0.95\textwidth}
+  \bf{\small Exemplo de entrada \thecount}
+  \small
+  \insereArquivo{\incat{\thecount}}
+  \vspace{-2pt}
+  \end{minipage}\\
+  \hline
+  \end{tabular}
+  \begin{tabular}{|l|} \hline
+  \begin{minipage}[t]{0.95\textwidth}
+  \bf{\small Exemplo de saída \thecount}
+  \small
+  \insereArquivo{\solcat{\thecount}}
+  \vspace{-2pt}
+  \end{minipage}\\
+  \hline
+  \end{tabular}
+  \end{center}
+  \end{minipage} % leave next line empty
+
+  \IfFileExists{\CWD/\explaincat{\thecount}} {
+  \begin{minipage}[c]{0.95\linewidth}
+    \emph{Explicação do exemplo \thecount}: \\[6pt]
+  \input{\CWD/\explaincat{\thecount}}
+  \end{minipage}\\[12pt]
+  } % leave next line empty
+
+  }{} % IfFileExists
+} % while
+
+} % sampleiofull
+
+
+
+\newcommand{\sampleio}{
+\ifdefined\fontegrande{
+\sampleiofull}
+\else{
+%\subsection*{Exemplos}
+\vspace{12pt}
+\setcounter{count}{0}
+% then check if sample-n.in is present
+\whiledo{\value{count}<10}{
+  \addtocounter{count}{1}
+  \IfFileExists{\CWD/\incat{\thecount}} {
+  \noindent
+  \begin{minipage}[c]{0.95\linewidth}
+  \begin{center}
+  \begin{tabular}{|l|l|} \hline
+  \begin{minipage}[t]{0.5\linewidth}
+  \bf{\small Exemplo de entrada \thecount}
+  \insereArquivo{\incat{\thecount}}
+  \end{minipage}
+  &
+  \begin{minipage}[t]{0.5\linewidth}
+  \bf{\small Exemplo de saída \thecount}
+  \insereArquivo{\solcat{\thecount}}
+  \end{minipage}\\
+  \hline
+  \end{tabular}
+  \end{center}
+  \end{minipage}
+  \vspace{8pt}
+
+  \IfFileExists{\CWD/\explaincat{\thecount}} {
+  \begin{minipage}[c]{0.95\linewidth}
+    \emph{Explicação do exemplo \thecount}: \\[6pt]
+  \input{\CWD/\explaincat{\thecount}}
+  \end{minipage}\\[12pt]
+  } % leave next line empty
+
+  \vspace{8pt}
+
+  }{} % IfFileExists
+} % while
+} % fontegrande
+\fi
+} % sampleio

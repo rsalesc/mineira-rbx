@@ -1,0 +1,121 @@
+\usepackage{caption}
+
+\captionsetup[figure]{labelformat=empty}
+
+\newcommand{\includeProblem}[3][]
+{
+	\newpage
+	\def\ProblemLetter{#1}
+	%\begin{center}
+	\ifx\ProblemLetter\empty
+		{\huge{\bf #2}}
+	\else
+		{\huge{\bf Problema #1. #2}}
+	\fi
+	%{\em Nome do arquivo fonte:}
+	% {\tt #1.c}, {\tt #1.cpp}, {\em ou} {\tt #1.java}
+	%\vspace{6pt}
+	%\end{center}
+
+	#3
+}
+\input{defs.tex}
+
+\addtolength{\parskip}{0.4\baselineskip}
+
+\pagestyle{myheadings}
+
+\newcounter{pcounter}\setcounter{pcounter}{0}
+\newcounter{qcounter}\setcounter{qcounter}{0}
+
+\usepackage{titlesec}
+
+\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{6t plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%\def\section{\@startsection {section}{1}{\z@}{-3.5ex plus -1ex minus 
+%    -.2ex}{2.3ex plus .2ex}{\centering\huge\sf}}
+
+%\def\subsection{\@startsection {subsection}{2}{\z@}{-3.5ex plus -1ex minus 
+%    -.2ex}{2.3ex plus .2ex}{\Large\bf}}
+
+
+
+\newcommand{\InsertTitlePage}
+{
+	\pagestyle{myheadings}
+	\markright{Maratona Mineira de Programação -- \Ano}
+
+	%%% Title Page
+	\begin{titlepage}
+		\begin{center}
+
+			\includegraphics[scale=0.3]{logo.png}
+
+			\vspace{0.5cm}
+			{\huge{\hspace{-0.1cm}\bf \Ano}}
+
+			{\huge{\bf Caderno de Problemas}}\\[12pt]
+			{\Large\bf \Modalidade}
+
+			%\vspace{0.3cm}
+			%\Data\\
+			%\vspace{0.5cm}
+			%A PROVA TEM DURAÇÃO DE \textbf{\Duracao} HORAS
+			%\vspace{0.5cm}
+
+			\vspace{1cm}
+			{\small \bf Patrocínio}\\[8pt]
+
+			\vspace{1cm}
+			\includegraphics[scale=0.5]{patrocinadores.png}
+
+			\vspace{2cm}
+			\hspace{3cm}
+			\begin{center}
+				\setlength{\tabcolsep}{0.1\textwidth}
+				\begin{tabular}{cc}
+					{\small\bf Colaboração}                                               & {\small\bf Realização} \\
+					\raisebox{0.8cm}{\includegraphics[scale=1.3]{logo_colaboradores.png}} &
+					\includegraphics[scale=0.35]{logo_realizacao.png}                                              \\
+				\end{tabular}
+			\end{center}
+
+		\end{center}
+	\end{titlepage}
+
+	\section*{Informações gerais}
+
+	\input{instrucoes.tex}
+
+	\clearpage
+}
+
+\newcommand{\InsertEditorialTitlePage}
+{
+	\pagestyle{myheadings}
+	\markright{Maratona Mineira de Programação -- \Ano}
+
+	%%% Title Page
+	\begin{titlepage}
+		\begin{center}
+
+			\includegraphics[scale=0.3]{logo.png}
+
+			\vspace{0.5cm}
+			{\huge{\bf \Ano}}
+
+			\vspace{0.5cm}
+			{\huge{\bf Caderno de soluções}}\\[12pt]
+
+			\vspace{0.3cm}
+			\Data\\
+
+			\vspace*{\fill}
+		\end{center}
+	\end{titlepage}
+
+	\clearpage
+}
+

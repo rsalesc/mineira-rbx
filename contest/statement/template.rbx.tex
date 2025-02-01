@@ -1,0 +1,28 @@
+\includeProblem
+%- if problem.short_name is defined
+[\VAR{problem.short_name}]
+%- endif
+{\VAR{problem.title | escape}}{
+
+	\VAR{problem.blocks.legend}
+
+	%- if problem.blocks.input is defined
+	\inputdesc{\VAR{problem.blocks.input}}
+	%- endif
+
+	%- if problem.blocks.output is defined
+	\outputdesc{\VAR{problem.blocks.output}}
+	%- endif
+
+        %- if problem.samples
+	\vspace{0.3cm}
+	\subsection*{Exemplos}
+	%- for sample in problem.samples
+	\exemplo{\VAR{sample.inputPath}}{\VAR{sample.outputPath if sample.outputPath is not none else ''}}%
+	%- endfor
+        %- endif
+
+	%- if problem.blocks.notes is defined
+	\VAR{problem.blocks.notes}
+	%- endif
+}

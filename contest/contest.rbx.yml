@@ -1,0 +1,30 @@
+# Add problems by running `rbx contest add <problem-name> <short-name>`
+
+name: "mineira"
+statements: 
+  - title: "Maratona Mineira de Programação"
+    language: pt
+    path: 'statement/contest.rbx.tex'
+    type: 'jinja-tex'
+    assets: 
+      - statement/obi_new.sty
+      - statement/defs.tex
+      - statement/instrucoes.tex
+      - statement/*.png
+      - statement/*.pdf
+    joiner: {type: 'tex2pdf'}
+    override:
+      configure:
+        - type: 'rbx-tex'  # Convert roboxTeX to TeX
+          template: 'statement/template.rbx.tex'
+  - title: "Maratona Mineira de Programação"
+    language: info-pt
+    path: 'statement/info.rbx.tex'
+    type: 'jinja-tex'
+    assets: 
+      - statement/maratona.sty
+      - statement/*.png
+      - statement/*.pdf
+problems:
+  - path: problem
+    short_name: A
