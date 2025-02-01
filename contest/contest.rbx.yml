@@ -25,6 +25,3 @@ statements:
       - statement/maratona.sty
       - statement/*.png
       - statement/*.pdf
-problems:
-  - path: problem
-    short_name: A
