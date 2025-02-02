@@ -16,7 +16,4 @@ tracking:
     - path: statement/maratona.sty
     - path: statement/defs.tex
     - path: statement/instrucoes.tex
-    - path: statement/logo.png
-    - path: statement/logo_colaboradores.png
-    - path: statement/logo_realizacao.png
-    - path: statement/patrocinadores.png
+    - path: statement/*.png

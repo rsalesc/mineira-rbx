@@ -25,3 +25,6 @@ statements:
       - statement/maratona.sty
       - statement/*.png
       - statement/*.pdf
+vars:
+  date: "08 de Junho de 2024"
+  year: 2024
