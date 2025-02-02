@@ -16,6 +16,7 @@ testcases:
   - name: 'tests'
     generatorScript:
       path: 'testplan.txt'
+# Solutions can be run with `rbx run`
 solutions:
   - path: 'sols/main.cpp'
     outcome: ACCEPTED
@@ -30,12 +31,13 @@ solutions:
 statements:
   - title: 'New Problem'
     path: 'statement/statement.rbx.tex'  # Open this file to edit your statement.
-    type: roboxTeX
+    type: rbxTeX
     language: 'pt'
     assets: ['statement/obi_new.sty', 'statement/defs.tex', 'statement/*.png', 'statement/*.pdf']
     configure:
-      - type: 'rbx-tex'  # Convert roboxTeX to TeX
+      - type: 'rbx-tex'  # Convert rbxTeX to TeX
         template: 'statement/template.rbx.tex'
+# Stresses can be run with `rbx stress`
 stresses:
   - name: 'wa_stress'
     generator:

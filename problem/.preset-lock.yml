@@ -1,7 +1,7 @@
-# yaml-language-server: $schema=/Users/rsalesc/Library/Application Support/robox/schemas/PresetLock.json
+# yaml-language-server: $schema=/Users/rsalesc/Library/Application Support/rbx/schemas/PresetLock.json
 
 name: default
-uri: rsalesc/robox.io/robox/resources/presets/default
+uri: rsalesc/rbx/rbx/resources/presets/default
 assets:
 - path: statement/template.rbx.tex
   hash: d81973af37032b9ab692625bfcc3da43ba613d31

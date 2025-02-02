@@ -15,7 +15,7 @@ statements:
     joiner: {type: 'tex2pdf'}
     override:
       configure:
-        - type: 'rbx-tex'  # Convert roboxTeX to TeX
+        - type: 'rbx-tex'  # Convert rbxTeX to TeX
           template: 'statement/template.rbx.tex'
   - title: "Maratona Mineira de Programação"
     language: info-pt
