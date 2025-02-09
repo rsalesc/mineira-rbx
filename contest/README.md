@@ -1,5 +1,11 @@
 # Using `rbx`
 
+## Usage
+
+Instructions can be found [here](https://rsalesc.github.io/rbx/setters/first-steps/), and more information can be found inside each problem's `problem.rbx.yml`.
+
+Also, you can find instructional videos [here](https://drive.google.com/drive/folders/100nIVGWt-iCtWn1dxbhhEgRdDpAWlHAX?usp=sharing).
+
 ## Requirements
 
 ### OS
@@ -50,7 +56,7 @@ pipx install rbx.cp
 
 ### pdfLaTeX
 
-You also need `pdfLaTeX` if you intend to build the statements PDF.
+You also need `pdfLaTeX` if you intend to build the PDF statements.
 
 In Ubuntu, you can do:
 

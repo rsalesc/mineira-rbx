@@ -1,3 +1,5 @@
+# rbx cheatsheet at https://rsalesc.github.io/rbx/setters/cheatsheet/
+
 name: 'new-problem'
 timeLimit: 1000  # ms
 memoryLimit: 1024  # MB
@@ -6,7 +8,9 @@ modifiers:  # Use `rbx languages` to list the languages available in your enviro
   java:
     time: 2000  # Custom timing for Java
 checker: {path: 'wcmp.cpp'}  # Download others from testlib with `rbx download checker`
-validator: {path: 'validator.cpp'}
+# More about validators at https://rsalesc.github.io/rbx/setters/reference/package/#validators
+validator: {path: 'validator.cpp'}  # Feel free to comment out the validator during development
+# More about generators at https://rsalesc.github.io/rbx/setters/reference/package/#generators
 generators:
   - path: 'gen.cpp'
     name: 'gen'
@@ -17,6 +21,7 @@ testcases:
     generatorScript:
       path: 'testplan.txt'
 # Solutions can be run with `rbx run`
+# See more at https://rsalesc.github.io/rbx/setters/reference/package/#solutions
 solutions:
   - path: 'sols/main.cpp'
     outcome: ACCEPTED
@@ -28,8 +33,9 @@ solutions:
     outcome: WRONG_ANSWER
   - path: 'sols/slow.cpp'
     outcome: TLE_OR_RTE  # Can be TLE too
+# Statements can be built with `rbx build statement --output=pdf`
 statements:
-  - title: 'New Problem'
+  - title: 'New Problem'  # Change this to the human-readable title of the problem.
     path: 'statement/statement.rbx.tex'  # Open this file to edit your statement.
     type: rbxTeX
     language: 'pt'
@@ -38,12 +44,17 @@ statements:
       - type: 'rbx-tex'  # Convert rbxTeX to TeX
         template: 'statement/template.rbx.tex'
 # Stresses can be run with `rbx stress`
+# See more at https://rsalesc.github.io/rbx/setters/reference/package/#stress-tests
 stresses:
   - name: 'wa_stress'
     generator:
       name: 'gen'
       args: '[1..<MAX_N>] @' # `@` generates a random string
     finder: '[sols/wa.cpp] ~ INCORRECT'
+# More about variables at https://rsalesc.github.io/rbx/setters/reference/package/#variables
+#
+# https://rsalesc.github.io/rbx/setters/cheatsheet/#add-variables shows how they can be used in
+# statements, stress tests and validators.
 vars:
   "MAX_N": 1000000000  # Can be used in the validator, in stress tests and in the statement.
   "MOD": py`10**9 + 7` # Can also be a Python3 expression
