@@ -11,6 +11,7 @@
 \InsertTitlePage
 
 %- for problem in problems
+\stepcounter{problemcounter}
 \subimport{\VAR{problem.path | parent}/}{\VAR{problem.path | stem}}
 %- endfor
 

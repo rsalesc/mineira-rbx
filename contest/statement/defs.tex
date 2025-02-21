@@ -97,24 +97,26 @@
 
 \newcommand{\incat}[1]{sample-#1.in}
 \newcommand{\solcat}[1]{sample-#1.sol}
-\newcounter{count}
-\setcounter{count}{0}
+\newcounter{problemcounter}
+\setcounter{problemcounter}{0}
+\newcounter{exemplocounter}[problemcounter]
+\setcounter{exemplocounter}{0}
 
 \newcommand{\exemplo}[2]{
 	{\small
 
-		\setcounter{count}{0}
+		\stepcounter{exemplocounter}
 
 		\begin{minipage}[c]{0.9\textwidth}
 			\begin{center}
 				\begin{tabular}{|l|l|} \hline
 					\begin{minipage}[t]{0.5\textwidth}
-						\bf{Entrada}
+						\bf{Exemplo de entrada \arabic{exemplocounter}}
 						\insereArquivo{#1}
 					\end{minipage}
 					 &
 					\begin{minipage}[t]{0.5\textwidth}
-						\bf{Saída}
+						\bf{Exemplo de saída \arabic{exemplocounter}}
 						\insereArquivo{#2}
 					\end{minipage} \\
 					\hline
@@ -124,6 +126,13 @@
 
 	}
 } % exemplo
+
+\newcommand{\explanation}[1]{
+	\textbf{\strExplanation\theexemplocounter}
+
+	{#1} % leave empty line
+
+} % explanation
 
 %\newcommand{\incluir}[1]{
 %\input{#1}
