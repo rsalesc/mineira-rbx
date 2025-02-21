@@ -3,8 +3,8 @@ sandbox: "stupid"
 defaultCompilation:
   sandbox:
     maxProcesses: 1000
-    timeLimit: 10000 # 10 seconds
-    wallTimeLimit: 10000 # 10 seconds
+    timeLimit: 50000 # 50 seconds
+    wallTimeLimit: 50000 # 50 seconds
     memoryLimit: 1024 # 1gb
     preserveEnv: true
     mirrorDirs:
@@ -13,8 +13,8 @@ defaultCompilation:
 defaultExecution:
   sandbox:
     # Useful for checkers, validators, etc.
-    timeLimit: 10000 # 10 seconds
-    wallTimeLimit: 10000 # 10 seconds
+    timeLimit: 50000 # 50 seconds
+    wallTimeLimit: 50000 # 50 seconds
     memoryLimit: 1024 # 1gb
 languages:
   - name: "cpp"

@@ -29,10 +29,14 @@
 	\subsection*{Exemplos}
 	%- for sample in problem.samples
 	\exemplo{\VAR{sample.inputPath}}{\VAR{sample.outputPath if sample.outputPath is not none else ''}}%
+	%- if sample.explanation is not none
+	\explanation{\VAR{sample.explanation}}
+	%- endif
 	%- endfor
 	%- endif
 
 	%- if problem.blocks.notes is defined
+	\subsection*{Observações}
 	\VAR{problem.blocks.notes}
 	%- endif
 }
